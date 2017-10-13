@@ -28,7 +28,12 @@ app.all("*", (req, res, next) => {
   next();
 });
 
+idle = (req, res, next) => {
+  res.sendStatus(200);
+};
+
 //ROUTES
+app.get("/", idle);
 app.get("/music/", music.queryMusic);
 
 app.get("/insert/", music.insertMySQL);
